@@ -14,4 +14,14 @@ module.exports = function(app) {
     notesData.push(req.body);
     res.send(notesData);
   });
+
+  app.delete("/api/notes/:id", function(req, res) {
+    notesData = notesData.filter(note => {
+      if (note.id == req.params.id) {
+        return false;
+      }
+      return true;
+    });
+    res.send(notesData);
+  });
 };
