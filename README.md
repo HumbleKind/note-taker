@@ -5,6 +5,7 @@
 This is an application that can be used to write, save, and delete notes (data from a JSON file), using an express backend.
 
 ![Note Taker App](screen-shot_1.png)
+![Note Taker App](screen-shot_2.png)
 
 The application allows users to ...
 1. create and save notes
