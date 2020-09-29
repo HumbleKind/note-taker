@@ -1,5 +1,7 @@
 var notesData = require("../db/db.json");
 const { v4 : uuidv4 } = require("uuid");
+const fs = require("fs");
+const path = require("path");
 
 module.exports = function(app) {
   
@@ -12,6 +14,7 @@ module.exports = function(app) {
     
     req.body.id = newId;
     notesData.push(req.body);
+    fs.writeFileSync(path.join(__dirname, "../db/db.json"), JSON.stringify(notesData));
     res.send(notesData);
   });
 
@@ -22,6 +25,7 @@ module.exports = function(app) {
       }
       return true;
     });
+    fs.writeFileSync(path.join(__dirname, "../db/db.json"), JSON.stringify(notesData));
     res.send(notesData);
   });
 };
